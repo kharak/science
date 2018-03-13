@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/quiz.css')}}">
+</head>
+
+
+<body>
+
+
+<header class="header">
+  <div class="nav-button" style="font-size:40px;cursor:pointer;z-index: 1;" onclick="openNav()">&#9776;</div>
+<div id="main-heading">Science Quiz</div>
+
+</header>
+
+
+<nav id="sidenav" class="sidenav ">
+  
+  <a href="{{url_for('home')}}" class="menu">Home</a>
+  <a href="{{url_for('quizFirst')}}" class="menu">Grade 1</a>
+  <a href="{{url_for('quizSecond')}}" class="menu">Grade 2</a>
+  <a href="{{url_for('quizThird')}}" class="menu">Grade 3</a>
+  <a href="{{url_for('quizFour')}}" class="menu">Grade 4</a>
+  <a href="{{url_for('quizFive')}}" class="menu">Grade 5</a>
+</nav>
+
+
+<section id="main">
+<div class="question-container">
+	<div class="image"><img id="displayimg" style="width:100%" src="{{url_for('static', filename='images/5.jpg')}}"></div>
+	<div class="question" id="que">Who is the Fastest animal in the world?</div>
+	<div class="options" id="o1">Leaopard</div>
+	<div class="options" id="o2">Human</div>
+	<div class="options" id="o3">Falcao</div>
+	<div class="options"  id="o4">Dolphin</div>
+</div >
+</section>
+
+
+
+<script>
+  var user = JSON.parse('{{ data | tojson}}');      
+  var grade=user.grade;
+  //console.log(grade);
+</script>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.3.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/quiz.js')}}"></script>
+
+</body>
+</html>
